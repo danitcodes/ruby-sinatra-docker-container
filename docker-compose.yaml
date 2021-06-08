@@ -1,10 +1,15 @@
 version: '3.9'
 services:
-  web:
+  web: #for web application
     volumes:
+      # Docker volumes are used for persistence
+      # allows for live reloading of code
       - .:/myapp
     build: .
     ports:
+      # for browser to interact with Docker
       - "4567:4567"
+      #maps a port within the container to a port outside of the container. The format for this is HOST:CONTAINER.
     stdin_open: true
     tty: true
+    #tty --> short for teletype (a.k.a. a terminal)
